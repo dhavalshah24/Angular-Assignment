@@ -1,0 +1,63 @@
+<div class="box">
+    <div class="header">
+        <p>Enter Employee Details</p>
+    </div>
+    <form [formGroup]="registrationForm" class="form-container" (ngSubmit)="onSubmit()" autocomplete="off">
+
+        <div formGroupName="name" class="form-name">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" placeholder="First Name" autocomplete="off" type="text">
+                <mat-error>Firstname is required</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" placeholder="Last Name" autocomplete="new-password"
+                    type="text">
+                <mat-error>Lastname is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Email" autocomplete="off" type="email">
+                <mat-error *ngIf="email && email.invalid ">
+                    {{getEmailError()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phoneNumber" placeholder="Phone Number" autocomplete="off" type="tel">
+                <mat-error *ngIf="phoneNumber && phoneNumber.invalid ">
+                    {{getphoneNumberError()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div formGroupName="address" class="form-address">
+            <mat-form-field appearance="outline">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput formControlName="line1" placeholder="Address line 1" autocomplete="off" type="text">
+                <mat-error>Address is required</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput formControlName="line2" placeholder="Address line 2" autocomplete="off" type="text">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput formControlName="dob" [matDatepicker]="picker" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>{{getDobError()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-button">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
