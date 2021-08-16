@@ -14,7 +14,8 @@ export class EmployeeFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public fname = "";
+  minDate = new Date(1900, 0, 1);
+  maxDate = new Date();
 
   registrationForm = this.fb.group({
     name: this.fb.group({
@@ -27,9 +28,8 @@ export class EmployeeFormComponent implements OnInit {
       line1: ["", [Validators.required]],
       line2: [""],
     }),
-    dob: ["", [Validators.required, Validators.pattern("((0[0-9])|(1[0-2]))/((0[1-9]|[12][0-9])|(3[01]))/(19|20)[0-9]{2}")]]
+    dob: ["", [Validators.required]]
   });
-
   get firstName() {
     return this.registrationForm.get("firstName")
   }
@@ -69,16 +69,6 @@ export class EmployeeFormComponent implements OnInit {
     }
     if (this.phoneNumber?.hasError("minlength") || this.phoneNumber?.hasError("maxlength")) {
       return "Phone Number should be of 10 digits";
-    }
-    return "";
-  }
-
-  getDobError() {
-    if(this.dob?.hasError("pattern")) {
-      return "Invalid Date of Birth";
-    }
-    if (this.dob?.hasError("required")) {
-      return "Date of Birth is required";
     }
     return "";
   }

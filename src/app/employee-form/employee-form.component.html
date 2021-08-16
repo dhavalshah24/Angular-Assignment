@@ -57,10 +57,12 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Date of Birth</mat-label>
-                <input matInput formControlName="dob" [matDatepicker]="picker" autocomplete="off">
+                <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="dob">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-                <mat-error>{{getDobError()}}</mat-error>
+                <mat-error *ngIf="dob && dob.invalid && dob.touched">
+                    Date of Birth is invalid
+                </mat-error>
             </mat-form-field>
         </div>
         <div class="form-button">
