@@ -4,18 +4,22 @@
     </div>
     <form [formGroup]="registrationForm" class="form-container" (ngSubmit)="onSubmit()" autocomplete="off">
 
-        <div formGroupName="name" class="form-name">
-            <mat-form-field appearance="outline">
-                <mat-label>First Name</mat-label>
-                <input matInput formControlName="firstName" placeholder="First Name" autocomplete="off" type="text">
-                <mat-error>Firstname is required</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Last Name</mat-label>
-                <input matInput formControlName="lastName" placeholder="Last Name" autocomplete="new-password"
-                    type="text">
-                <mat-error>Lastname is required</mat-error>
-            </mat-form-field>
+        <div formGroupName="name" class="form-name row">
+            <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" placeholder="First Name" autocomplete="off" type="text">
+                    <mat-error>Firstname is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" placeholder="Last Name" autocomplete="new-password"
+                        type="text">
+                    <mat-error>Lastname is required</mat-error>
+                </mat-form-field>
+            </div>
         </div>
         <div>
             <mat-form-field appearance="outline">
@@ -35,18 +39,21 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div formGroupName="address" class="form-address">
-            <mat-form-field appearance="outline">
-                <mat-label>Address Line 1</mat-label>
-                <input matInput formControlName="line1" placeholder="Address line 1" autocomplete="off" type="text">
-                <mat-error>Address is required</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Address Line 2</mat-label>
-                <input matInput formControlName="line2" placeholder="Address line 2" autocomplete="off" type="text">
-            </mat-form-field>
+        <div formGroupName="address" class="form-address row">
+            <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Address Line 1</mat-label>
+                    <input matInput formControlName="line1" placeholder="Address line 1" autocomplete="off" type="text">
+                    <mat-error>Address is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Address Line 2</mat-label>
+                    <input matInput formControlName="line2" placeholder="Address line 2" autocomplete="off" type="text">
+                </mat-form-field>
+            </div>
         </div>
-
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Date of Birth</mat-label>
@@ -61,3 +68,6 @@
         </div>
     </form>
 </div>
+
+<!-- https://codesandbox.io/s/angular-assignment-6nczz -->
+<!-- https://6nczz.csb.app/employees -->
